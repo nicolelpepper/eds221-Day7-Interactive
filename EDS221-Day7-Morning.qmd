@@ -1,0 +1,16 @@
+---
+title: "EDS 221 Day 7 Morning Session"
+author: "Nicole Pepper"
+format: html
+editor: visual
+---
+
+
+```{r}
+# Load your libraries
+library(tidyverse)
+library(palmerpenguins)
+library(lubridate)
+
+```
+
