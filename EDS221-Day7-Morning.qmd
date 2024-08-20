@@ -3,6 +3,8 @@ title: "EDS 221 Day 7 Morning Session"
 author: "Nicole Pepper"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -11,6 +13,28 @@ editor: visual
 library(tidyverse)
 library(palmerpenguins)
 library(lubridate)
+
+```
+
+```{r}
+# Data wrangling refresher
+
+#
+penguins_filt1 <- penguins %>%
+  #filter(island == "Biscoe"|island == "Dream") %>% 
+  filter(island %in% c("Biscoe","Dream")) %>%
+  select(-year, -sex)%>% 
+  mutate(body_mass_kg =   body_mass_g/1000) %>%
+  rename(location = island)
+
+  
+penguins_filt2 <- penguins %>%
+  filter(species == "Adelie") %>%
+  #filter(species %in% c("Adelie"))
+  !is.na(flipper_length_mm) %>%
+  group_by(sex) %>%
+  summarise(flipper_mean = mean(flipper_length_mm))
+
 
 ```
 
